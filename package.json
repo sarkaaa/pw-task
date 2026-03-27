@@ -1,0 +1,37 @@
+{
+  "name": "pw-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "biome:check": "biome check .",
+    "biome:fix": "biome check --write .",
+    "biome:format": "biome format --write .",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "Sarka Chwastkova",
+  "license": "ISC",
+  "packageManager": "pnpm@10.29.1",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.9",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/cz-commitlint": "^20.5.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
+    "commitizen": "^4.3.1",
+    "husky": "^9.1.7",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
+}

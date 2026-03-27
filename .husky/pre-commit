@@ -1,0 +1,10 @@
+echo "Committing changes...⏳"
+pnpm run biome:format
+if [ $status -eq 0 ]; then
+  echo "✅ Formatting passed. Proceeding with commit."
+fi
+status=$?
+if [ $status -eq 0 ]; then
+  echo "✅ Pre-commit checks passed. Proceeding with commit."
+fi
+exit $status

@@ -1,0 +1,7 @@
+if [ "$2" = "commit" ]; then
+  echo "1" > .git/.skip-commit-validation
+  exit 0
+fi
+
+rm -f .git/.skip-commit-validation
+exec < /dev/tty && pnpm cz --hook || true

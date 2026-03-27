@@ -1,0 +1,70 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.9/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": ["tests/**/*.ts", "tests/**/*.tsx"],
+		"ignoreUnknown": false
+	},
+	"formatter": {
+		"enabled": true,
+		"includes": ["tests/**/*.ts", "tests/**/*.tsx"],
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"domains": {
+			"playwright": "all"
+		},
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noRedundantAlt": "error",
+				"useAltText": "error",
+				"useButtonType": "error"
+			},
+			"nursery": {
+				"useSortedClasses": "error",
+				"noPlaywrightMissingAwait": "error",
+				"noPlaywrightUselessAwait": "error",
+				"noPlaywrightForceOption": "error",
+				"noPlaywrightWaitForSelector": "error"
+			},
+			"correctness": {
+				"noUnusedImports": "error",
+				"noUnusedVariables": "error",
+				"useJsxKeyInIterable": "error"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons": "asNeeded"
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		}
+	],
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	}
+}
