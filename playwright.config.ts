@@ -29,6 +29,7 @@ export default defineConfig({
       name: "iphone",
       use: {
         ...devices["iPhone 14"],
+        isMobile: true,
         storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
