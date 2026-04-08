@@ -9,6 +9,9 @@
     "biome:check": "biome check .",
     "biome:fix": "biome check --write .",
     "biome:format": "biome format --write .",
+    "allure:generate": "allure generate --clean",
+    "allure:index": "node scripts/allure-index.mjs .",
+    "allure:serve": "allure serve",
     "prepare": "husky"
   },
   "keywords": [],
@@ -21,6 +24,8 @@
     "@commitlint/cz-commitlint": "^20.5.0",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.5.0",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.7.0",
     "commitizen": "^4.3.1",
     "husky": "^9.1.7",
     "typescript": "^6.0.2"

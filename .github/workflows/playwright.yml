@@ -1,11 +1,11 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
 jobs:
   playwright:
-    name: 'E2E Tests'
+    name: "E2E Tests"
     runs-on: ubuntu-latest
     env:
       EMAIL: ${{ secrets.EMAIL }}
@@ -30,22 +30,25 @@ jobs:
 
       - name: Run your tests
         id: test-run
-        run: |
-          pnpm exec playwright test
-          EXIT=$?
-          echo "exit_code=$EXIT" >> $GITHUB_OUTPUT
-          exit $EXIT
+        run: pnpm exec playwright test
 
-      - name: Test results
-        env:
-          EXIT_CODE: ${{ steps.test-run.outputs.exit_code }}
+      - name: Test summary
+        if: always()
         run: |
-          if [ "$EXIT_CODE" = "0" ]; then
-            echo "Tests passed successfully ✅"
+          if [ "${{ steps.test-run.outcome }}" = "success" ]; then
+            echo "Tests passed successfully. ✅"
           else
-            echo "Tests failed ❌"
+            echo "Tests failed. ⛔️"
           fi
-          exit $EXIT_CODE
+
+      - name: Generate Allure report
+        if: always() && !cancelled()
+        run: |
+          if [ -d allure-results ] && [ -n "$(ls -A allure-results 2>/dev/null)" ]; then
+            pnpm allure:generate
+          else
+            echo "No allure-results ⛔️; skipping Allure generate."
+          fi
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v6
@@ -54,3 +57,12 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 30
+          if-no-files-found: ignore
