@@ -10,3 +10,6 @@ node_modules/
 
 .DS_Store
 cache/
+allure-report/
+allure-results/
+tests/.auth/user.json

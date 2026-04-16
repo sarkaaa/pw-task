@@ -14,6 +14,7 @@ export default defineConfig({
     baseURL:
       process.env.BASE_URL ??
       "https://demo.medusajs.com/",
+    storageState: 'tests/.auth/user.json',
   },
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
@@ -21,7 +22,6 @@ export default defineConfig({
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
-        storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
     },
@@ -30,7 +30,6 @@ export default defineConfig({
       use: {
         ...devices["iPhone 14"],
         isMobile: true,
-        storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
     }
