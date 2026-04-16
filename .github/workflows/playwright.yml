@@ -11,7 +11,6 @@ jobs:
       EMAIL: ${{ secrets.EMAIL }}
       PASSWORD: ${{ secrets.PASSWORD }}
       BASE_URL: ${{ vars.BASE_URL }}
-      TOKEN: ${{ secrets.TOKEN }}
     steps:
       - name: Checkout and clone the repository
         uses: actions/checkout@v6

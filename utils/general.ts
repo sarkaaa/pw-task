@@ -1,7 +1,7 @@
 /**
  * Env variables are loaded in `playwright.config.ts` via dotenv before tests run.
  */
-type EnvName = "EMAIL" | "PASSWORD" | "TOKEN" | "BASE_URL"
+type EnvName = "EMAIL" | "PASSWORD" | "BASE_URL"
 export const requireEnv = (name: EnvName): string => {
 	const value = process.env[name]
 	if (value === undefined || value === "") {

@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test"
+import { INVALID_LOGIN_CASES } from "../fixtures/userData"
 import { LoginPage } from "../pages/LoginPage"
 import { requireEnv } from "../utils/general"
 import { showLoginError } from "../utils/loginError"
-import { INVALID_LOGIN_CASES } from "../fixtures/userData"
 
 test.use({ storageState: { cookies: [], origins: [] } })
 

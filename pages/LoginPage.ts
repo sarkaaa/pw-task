@@ -63,16 +63,6 @@ export class LoginPage {
     await this.signInButton.click();
   }
 
-  async addJwtCookie(token: string, url: string) {
-    await this.page.context().addCookies([
-      {
-        name: "_medusa_jwt",
-        value: token,
-        url,
-      },
-    ]);
-  }
-
   async clickRegister() {
     await this.registerButton.click();
   }
