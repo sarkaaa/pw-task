@@ -1,4 +1,4 @@
-import { requireEnv } from "../utils/general";
+import { requireEnv } from "../../utils/general";
 
 type UserProps = {
   firstName: string;

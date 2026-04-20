@@ -14,12 +14,13 @@ export default defineConfig({
     baseURL:
       process.env.BASE_URL ??
       "https://demo.medusajs.com/",
-    storageState: 'tests/.auth/user.json',
+    storageState: 'tests/medusa/.auth/user.json',
   },
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
     {
       name: "chromium",
+      testIgnore: "tests/oAuth/oAuth.spec.ts",
       use: {
         ...devices["Desktop Chrome"],
       },
@@ -27,11 +28,20 @@ export default defineConfig({
     },
     {
       name: "iphone",
+      testIgnore: "tests/oAuth/oAuth.spec.ts",
       use: {
         ...devices["iPhone 14"],
         isMobile: true,
       },
       dependencies: ['setup'],
-    }
-  ],
+    },
+    {
+      name: "oAuth",
+      testMatch: "tests/oAuth/oAuth.spec.ts",
+			use: {
+        ...devices["Desktop Chrome"],
+        baseURL: process.env.AUTH0_DOMAIN ?? "https://dev-l6iqq0v7n4m5f6zz.us.auth0.com/",
+			},
+		},
+	],
 });

@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { LoginPage } from "../pages/LoginPage";
+import { LoginPage } from "../../pages/medusa/LoginPage";
 
 /**
  * Shows the login error message.
