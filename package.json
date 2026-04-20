@@ -6,6 +6,7 @@
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --ui",
+    "test:results": "playwright show-report",
     "biome:check": "biome check .",
     "biome:fix": "biome check --write .",
     "biome:format": "biome format --write .",
