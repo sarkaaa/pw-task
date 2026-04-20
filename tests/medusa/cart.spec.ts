@@ -1,13 +1,18 @@
 import { expect, test } from "@playwright/test"
-import { HOODIE, PRODUCTS } from "../fixtures/products"
+import { HOODIE, PRODUCTS } from "../../fixtures/medusa/products"
 import {
 	checkProductTitlePricePair,
 	checkSortedPrices,
 	expectedPricesLowToHigh,
 	waitForSortResponse,
-} from "../utils/sortPrices"
+} from "../../utils/medusa/sortPrices"
 
-test.describe("Cart", () => {
+test.describe("Cart", {
+	annotation: {
+		type: "issue",
+		description: "https://github.com/microsoft/playwright/issues/23180",
+	},
+}, () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto("/")
 

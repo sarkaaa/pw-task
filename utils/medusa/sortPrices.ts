@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
-import { PRODUCTS } from "../fixtures/products";
+import { PRODUCTS } from "../../fixtures/medusa/products";
 
 /**
  * Expected prices low to high. Mainly used for sorting checks.

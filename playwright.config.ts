@@ -14,7 +14,7 @@ export default defineConfig({
     baseURL:
       process.env.BASE_URL ??
       "https://demo.medusajs.com/",
-    storageState: 'tests/.auth/user.json',
+    storageState: 'tests/medusa/.auth/user.json',
   },
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },

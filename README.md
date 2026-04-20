@@ -117,24 +117,30 @@ pw-task/
 │   └── workflows/
 │       └── playwright.yml       # CI pipeline
 ├── fixtures/
-│   ├── products.ts              # Static product test data
-│   └── userData.ts              # Static user / address test data
+│   └── medusa/
+│       ├── products.ts          # Static product test data
+│       └── userData.ts          # Static user / address test data
 ├── pages/
-│   └── LoginPage.ts             # Page Object for the login / account page
+│   └── medusa/
+│       └── LoginPage.ts         # Page Object for the login / account page
 ├── scripts/
 │   └── allure-index.mjs         # Optional: builds index.html for local Allure runs/
 ├── tests/
-│   ├── .auth/
-│   │   └── user.json            # Saved authentication state (git-ignored)
-│   ├── auth.setup.ts            # Global auth setup
-│   ├── account.spec.ts          # Account management tests
-│   ├── cart.spec.ts             # Cart and product tests
-│   ├── checkout.spec.ts         # Checkout tests
-│   └── login.spec.ts            # Login UI tests
+│   ├── medusa/
+│   │   ├── .auth/
+│   │   │   └── user.json        # Saved authentication state (git-ignored)
+│   │   ├── auth.setup.ts        # Medusa auth setup (runs before chromium & iphone projects)
+│   │   ├── cart.spec.ts         # Cart and product tests
+│   │   └── login.spec.ts        # Login UI tests
+│   └── oAuth/
+│       └── oAuth.spec.ts        # OAuth 2.0 PKCE flow test
 ├── utils/
-│   ├── general.ts               # Shared helpers (requireEnv, etc.)
-│   ├── loginError.ts            # Login error assertion helper
-│   └── sortPrices.ts            # Price sorting helpers
+│   ├── medusa/
+│   │   ├── loginError.ts        # Login error assertion helper
+│   │   └── sortPrices.ts        # Price sorting helpers
+│   ├── oauth/
+│   │   └── generatePKCE.ts      # PKCE verifier / challenge generator
+│   └── general.ts               # Shared helpers (requireEnv)
 ├── .env.example                 # Environment variables template
 ├── biome.json                   # Biome linter/formatter config
 ├── commitlint.config.mjs        # Commitlint config
